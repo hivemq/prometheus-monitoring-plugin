@@ -1,0 +1,7 @@
+target/
+.idea/
+dependency-reduced-pom.xml
+prometheus.iml
+hivemq-prometheus-monitoring.iml
+.DS_Store
+*.iml
