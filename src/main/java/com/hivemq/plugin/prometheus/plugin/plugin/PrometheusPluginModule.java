@@ -35,7 +35,6 @@ public class PrometheusPluginModule extends HiveMQPluginModule {
 
     }
 
-
     @Override
     protected Class<? extends PluginEntryPoint> entryPointClass() {
         return PrometheusMainClass.class;
