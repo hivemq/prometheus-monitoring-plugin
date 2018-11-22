@@ -26,7 +26,7 @@ import com.hivemq.spi.plugin.meta.Information;
  *
  * @author Daniel Krüger
  */
-@Information(name = "HiveMQ Prometheus Plugin", author = "Daniel Krüger", version = "1.0.0")
+@Information(name = "HiveMQ Prometheus Plugin", author = "dc-square GmbH", version = "1.1.0")
 public class PrometheusPluginModule extends HiveMQPluginModule {
 
 
