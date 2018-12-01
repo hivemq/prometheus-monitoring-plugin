@@ -16,10 +16,10 @@
 
 package com.hivemq.plugin.prometheus.plugin.export;
 
+import com.codahale.metrics.MetricRegistry;
 import com.codahale.metrics.Timer;
 import com.hivemq.plugin.api.annotations.NotNull;
 import com.hivemq.plugin.api.annotations.Nullable;
-import com.hivemq.plugin.api.services.Services;
 import io.prometheus.client.CollectorRegistry;
 import io.prometheus.client.exporter.MetricsServlet;
 import org.slf4j.Logger;
@@ -47,9 +47,9 @@ class MonitoredMetricServlet extends MetricsServlet {
     @Nullable
     private final Timer responses;
 
-    MonitoredMetricServlet() {
+    MonitoredMetricServlet(@NotNull final MetricRegistry metricRegistry) {
         super(CollectorRegistry.defaultRegistry);
-        this.responses = Services.metricRegistry().timer(name(MonitoredMetricServlet.class, metricTopic));
+        this.responses = metricRegistry.timer(name(MonitoredMetricServlet.class, metricTopic));
     }
 
 

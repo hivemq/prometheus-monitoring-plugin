@@ -15,9 +15,9 @@
  */
 package com.hivemq.plugin.prometheus.plugin.export;
 
+import com.codahale.metrics.MetricRegistry;
 import com.hivemq.plugin.api.annotations.NotNull;
 import com.hivemq.plugin.api.annotations.Nullable;
-import com.hivemq.plugin.api.services.Services;
 import com.hivemq.plugin.prometheus.plugin.configuration.PrometheusPluginConfiguration;
 import io.prometheus.client.CollectorRegistry;
 import io.prometheus.client.dropwizard.DropwizardExports;
@@ -36,22 +36,25 @@ public class PrometheusServer {
     private static final Logger log = LoggerFactory.getLogger(PrometheusServer.class);
     @Nullable
     private PrometheusPluginConfiguration configuration;
+    @NotNull
+    private final MetricRegistry metricRegistry;
 
     @Nullable
     private Server server;
 
-    public PrometheusServer(@NotNull final PrometheusPluginConfiguration configuration) {
+    public PrometheusServer(@NotNull final PrometheusPluginConfiguration configuration, @NotNull final MetricRegistry metricRegistry) {
         this.configuration = configuration;
+        this.metricRegistry = metricRegistry;
     }
 
 
     public void start() {
-        CollectorRegistry.defaultRegistry.register(new DropwizardExports(Services.metricRegistry()));
+        CollectorRegistry.defaultRegistry.register(new DropwizardExports(metricRegistry));
         server = new Server(new InetSocketAddress(configuration.hostIp(), configuration.port()));
         ServletContextHandler context = new ServletContextHandler();
         context.setContextPath("/");
         server.setHandler(context);
-        context.addServlet(new ServletHolder(new MonitoredMetricServlet()), configuration.metricPath());
+        context.addServlet(new ServletHolder(new MonitoredMetricServlet(metricRegistry)), configuration.metricPath());
         try {
             server.start();
         } catch (Exception e) {

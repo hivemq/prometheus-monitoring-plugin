@@ -22,6 +22,7 @@ import com.hivemq.plugin.api.parameter.PluginStartInput;
 import com.hivemq.plugin.api.parameter.PluginStartOutput;
 import com.hivemq.plugin.api.parameter.PluginStopInput;
 import com.hivemq.plugin.api.parameter.PluginStopOutput;
+import com.hivemq.plugin.api.services.Services;
 import com.hivemq.plugin.prometheus.plugin.configuration.ConfigurationReader;
 import com.hivemq.plugin.prometheus.plugin.configuration.PrometheusPluginConfiguration;
 import com.hivemq.plugin.prometheus.plugin.exception.InvalidConfigurationException;
@@ -61,7 +62,7 @@ public class PrometheusMainClass implements PluginMain {
         }
 
 
-        prometheusServer = new PrometheusServer(configuration);
+        prometheusServer = new PrometheusServer(configuration, Services.metricRegistry());
         prometheusServer.start();
     }
 

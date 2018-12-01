@@ -36,7 +36,7 @@ public class ConfigurationReader {
     /**
      * The path of the prometheusConfiguration.properties file relative to the HiveMQ conf folder
      */
-    static final String CONFIG_PATH = "prometheusConfiguration.properties";
+    public static final String CONFIG_PATH = "prometheusConfiguration.properties";
     /**
      * The minimal possible  port
      */
