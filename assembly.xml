@@ -24,7 +24,7 @@
     <files>
         <file>
             <source>target/README.html</source>
-            <outputDirectory>/hivemq-prometheus-plugin/</outputDirectory>
+            <outputDirectory>/</outputDirectory>
         </file>
         <file>
             <source>README.adoc</source>
