@@ -48,6 +48,13 @@ public class PrometheusServer {
         context.setContextPath("/");
         server.setHandler(context);
         context.addServlet(new ServletHolder(new MonitoredMetricServlet()), configuration.metricPath());
+        try {
+            server.start();
+        } catch (Exception e) {
+            log.error("Error starting the Jetty Server");
+            log.debug("Original exception was:", e);
+        }
+        log.info("Started Jetty Server exposing Prometheus Servlet on URI {}", server.getURI()+":"+ configuration.port()+configuration.metricPath());
     }
 
     public void stop() {

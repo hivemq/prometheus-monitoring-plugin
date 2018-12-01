@@ -24,7 +24,7 @@
     <files>
         <file>
             <source>target/README.html</source>
-            <outputDirectory>/</outputDirectory>
+            <outputDirectory>/hivemq-prometheus-plugin/</outputDirectory>
         </file>
         <file>
             <source>README.adoc</source>
@@ -36,14 +36,18 @@
             <outputDirectory>/</outputDirectory>
         </file>
         <file>
+            <source>hivemq-plugin.xml</source>
+            <outputDirectory>/hivemq-prometheus-plugin/</outputDirectory>
+        </file>
+        <file>
             <source>src/main/resources/prometheusConfiguration.properties</source>
-            <outputDirectory>/sample-configuration/</outputDirectory>
+            <outputDirectory>/hivemq-prometheus-plugin</outputDirectory>
         </file>
 
         <file>
             <source>target/${artifactId}-${version}.jar</source>
             <destName>prometheus-monitoring-plugin-${version}.jar</destName>
-            <outputDirectory>/</outputDirectory>
+            <outputDirectory>/hivemq-prometheus-plugin/</outputDirectory>
         </file>
     </files>
 

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.hivemq.plugin.prometheus.plugin.plugin;
+package com.hivemq.plugin.prometheus.plugin;
 
 import com.hivemq.plugin.api.PluginMain;
 import com.hivemq.plugin.api.annotations.NotNull;
