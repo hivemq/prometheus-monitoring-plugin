@@ -15,21 +15,15 @@
  */
 package com.hivemq.plugin.prometheus.plugin.export;
 
-import com.codahale.metrics.MetricRegistry;
 import com.hivemq.plugin.api.annotations.NotNull;
 import com.hivemq.plugin.api.annotations.Nullable;
-import com.hivemq.plugin.prometheus.plugin.configuration.ConfigurationReader;
 import com.hivemq.plugin.prometheus.plugin.configuration.PrometheusPluginConfiguration;
-import com.hivemq.plugin.prometheus.plugin.exception.InvalidConfigurationException;
-import io.prometheus.client.CollectorRegistry;
-import io.prometheus.client.exporter.MetricsServlet;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.FileNotFoundException;
 import java.net.InetSocketAddress;
 
 public class PrometheusServer {
@@ -43,13 +37,12 @@ public class PrometheusServer {
     @Nullable
     private Server server;
 
-    public PrometheusServer(@NotNull final PrometheusPluginConfiguration configuration){
+    public PrometheusServer(@NotNull final PrometheusPluginConfiguration configuration) {
         this.configuration = configuration;
     }
 
 
-
-    public void start(){
+    public void start() {
         server = new Server(new InetSocketAddress(configuration.hostIp(), configuration.port()));
         ServletContextHandler context = new ServletContextHandler();
         context.setContextPath("/");
@@ -57,7 +50,7 @@ public class PrometheusServer {
         context.addServlet(new ServletHolder(new MonitoredMetricServlet()), configuration.metricPath());
     }
 
-    public void stop(){
+    public void stop() {
         try {
             server.stop();
         } catch (Exception e) {

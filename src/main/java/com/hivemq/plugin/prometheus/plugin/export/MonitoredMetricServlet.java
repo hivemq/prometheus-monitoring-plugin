@@ -16,7 +16,6 @@
 
 package com.hivemq.plugin.prometheus.plugin.export;
 
-import com.codahale.metrics.MetricRegistry;
 import com.codahale.metrics.Timer;
 import com.hivemq.plugin.api.annotations.NotNull;
 import com.hivemq.plugin.api.annotations.Nullable;

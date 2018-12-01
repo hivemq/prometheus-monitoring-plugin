@@ -26,8 +26,6 @@ import com.hivemq.plugin.prometheus.plugin.configuration.ConfigurationReader;
 import com.hivemq.plugin.prometheus.plugin.configuration.PrometheusPluginConfiguration;
 import com.hivemq.plugin.prometheus.plugin.exception.InvalidConfigurationException;
 import com.hivemq.plugin.prometheus.plugin.export.PrometheusServer;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.io.FileNotFoundException;
 
@@ -48,16 +46,16 @@ public class PrometheusMainClass implements PluginMain {
         try {
             configuration = new ConfigurationReader(pluginStartInput.getPluginInformation()).readConfiguration();
         } catch (FileNotFoundException e) {
-            pluginStartOutput.preventPluginStartup("the configuration file: "+ e.getMessage()+ " could not be read.");
+            pluginStartOutput.preventPluginStartup("the configuration file: " + e.getMessage() + " could not be read.");
             return;
         } catch (InvalidConfigurationException e) {
             pluginStartOutput.preventPluginStartup(e.getMessage());
             return;
         } catch (Exception e) {
-            pluginStartOutput.preventPluginStartup("Unknown error while reading configuration file" + ((e.getMessage()!=null)?": "+ e.getMessage():""));
+            pluginStartOutput.preventPluginStartup("Unknown error while reading configuration file" + ((e.getMessage() != null) ? ": " + e.getMessage() : ""));
             return;
         }
-        if(configuration==null){
+        if (configuration == null) {
             pluginStartOutput.preventPluginStartup("Unspecified error occurred while reading configuration");
             return;
         }

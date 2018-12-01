@@ -19,9 +19,6 @@ package com.hivemq.plugin.prometheus.plugin.configuration;
 import com.hivemq.plugin.api.parameter.PluginInformation;
 import com.hivemq.plugin.prometheus.plugin.exception.InvalidConfigurationException;
 import org.aeonbits.owner.ConfigFactory;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 
 import java.io.File;
 import java.io.FileInputStream;
