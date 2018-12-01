@@ -17,7 +17,10 @@ package com.hivemq.plugin.prometheus.plugin.export;
 
 import com.hivemq.plugin.api.annotations.NotNull;
 import com.hivemq.plugin.api.annotations.Nullable;
+import com.hivemq.plugin.api.services.Services;
 import com.hivemq.plugin.prometheus.plugin.configuration.PrometheusPluginConfiguration;
+import io.prometheus.client.CollectorRegistry;
+import io.prometheus.client.dropwizard.DropwizardExports;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
@@ -43,6 +46,7 @@ public class PrometheusServer {
 
 
     public void start() {
+        CollectorRegistry.defaultRegistry.register(new DropwizardExports(Services.metricRegistry()));
         server = new Server(new InetSocketAddress(configuration.hostIp(), configuration.port()));
         ServletContextHandler context = new ServletContextHandler();
         context.setContextPath("/");
