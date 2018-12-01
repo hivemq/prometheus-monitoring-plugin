@@ -19,16 +19,16 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.hivemq.plugin</groupId>
-    <artifactId>hivemq-prometheus-monitoring-plugin</artifactId>
-    <version>1.1.0</version>
+    <artifactId>hivemq4-prometheus-monitoring-plugin</artifactId>
+    <version>1.0.0</version>
 
-    <description>HiveMQ plugin to utilize Prometheus for monitoring</description>
+    <description>HiveMQ4 plugin to utilize Prometheus for monitoring</description>
 
     <dependencies>
         <dependency>
-            <groupId>com.hivemq</groupId>
-            <artifactId>hivemq-spi</artifactId>
-            <version>3.4.0</version>
+        <groupId>com.hivemq</groupId>
+        <artifactId>hivemq-plugin-api</artifactId>
+        <version>4.0.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>io.prometheus</groupId>
@@ -189,35 +189,6 @@
         </plugins>
     </build>
     <profiles>
-        <profile>
-            <id>
-                RunWithHiveMQ
-            </id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>com.hivemq</groupId>
-                        <artifactId>hivemq-maven-plugin</artifactId>
-                        <version>3.0.1</version>
-                        <executions>
-                            <execution>
-                                <id>hivemq</id>
-                                <phase>package</phase>
-                                <goals>
-                                    <goal>hivemq</goal>
-                                </goals>
-                                <configuration>
-                                    <hiveMQDir>
-                                        FIXME, insert your HiveMQ directory here!
-                                    </hiveMQDir>
-                                    <debugMode>SERVER</debugMode>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
         <profile>
             <id>Packaging</id>
             <build>

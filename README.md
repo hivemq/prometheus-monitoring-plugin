@@ -1,1 +1,0 @@
-#HiveMQ Prometheus Plugin
