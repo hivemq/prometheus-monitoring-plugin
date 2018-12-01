@@ -58,7 +58,7 @@ public class PrometheusServer {
         try {
             server.start();
         } catch (Exception e) {
-            log.error("Error starting the Jetty Server");
+            log.error("Error starting the Jetty Server for Prometheus Plugin");
             log.debug("Original exception was:", e);
         }
         log.info("Started Jetty Server exposing Prometheus Servlet on URI {}", server.getURI()+":"+ configuration.port()+configuration.metricPath());
@@ -66,6 +66,7 @@ public class PrometheusServer {
 
     public void stop() {
         try {
+            CollectorRegistry.defaultRegistry.unregister(new DropwizardExports(metricRegistry));
             server.stop();
         } catch (Exception e) {
             log.error("Exception occurred while stopping the Prometheus Plugin");
