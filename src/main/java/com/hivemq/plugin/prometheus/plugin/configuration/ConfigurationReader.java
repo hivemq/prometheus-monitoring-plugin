@@ -46,9 +46,7 @@ public class ConfigurationReader {
      */
     private static final int MAX_PORT = 65535;
 
-
     private final PluginInformation pluginInformation;
-
 
     public ConfigurationReader(final PluginInformation pluginInformation) {
         this.pluginInformation = pluginInformation;
@@ -68,7 +66,6 @@ public class ConfigurationReader {
         if (!file.canRead()) {
             throw new FileNotFoundException(file.getAbsolutePath());
         }
-
 
         try (FileInputStream in = new FileInputStream(file)) {
             final Properties properties = new Properties();
@@ -120,7 +117,6 @@ public class ConfigurationReader {
             error = true;
             sb.append(e.getMessage());
         }
-
 
         if (error) {
             String msg = "Error while parsing and testing the configuration: " + sb.toString();

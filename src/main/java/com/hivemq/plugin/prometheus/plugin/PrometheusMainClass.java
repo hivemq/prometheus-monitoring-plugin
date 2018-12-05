@@ -61,7 +61,6 @@ public class PrometheusMainClass implements PluginMain {
             return;
         }
 
-
         prometheusServer = new PrometheusServer(configuration, Services.metricRegistry());
         prometheusServer.start();
     }

@@ -61,7 +61,7 @@ public class PrometheusServer {
             log.error("Error starting the Jetty Server for Prometheus Plugin");
             log.debug("Original exception was:", e);
         }
-        log.info("Started Jetty Server exposing Prometheus Servlet on URI {}", server.getURI()+":"+ configuration.port()+configuration.metricPath());
+        log.info("Started Jetty Server exposing Prometheus Servlet on URI {}", server.getURI()+configuration.metricPath());
     }
 
     public void stop() {

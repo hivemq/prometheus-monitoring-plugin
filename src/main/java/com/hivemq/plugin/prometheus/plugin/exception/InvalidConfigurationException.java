@@ -22,6 +22,8 @@ package com.hivemq.plugin.prometheus.plugin.exception;
  * @author Daniel Krüger
  */
 public class InvalidConfigurationException extends Exception {
+    private static final long serialVersionUID = -6216153002463951736L;
+
     public InvalidConfigurationException(String message) {
         super(message);
     }
