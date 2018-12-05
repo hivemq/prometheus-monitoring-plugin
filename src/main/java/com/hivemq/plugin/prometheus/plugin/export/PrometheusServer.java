@@ -29,6 +29,11 @@ import org.slf4j.LoggerFactory;
 
 import java.net.InetSocketAddress;
 
+/**
+ * class that handles start and stop of a server, to enable requests the Metrics via the MonitoredMetricsServlet.
+ *
+ * @author Daniel Krüger
+ */
 public class PrometheusServer {
 
 

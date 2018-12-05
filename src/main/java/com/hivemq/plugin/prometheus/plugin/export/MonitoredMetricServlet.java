@@ -39,6 +39,7 @@ import static com.codahale.metrics.MetricRegistry.name;
  * @author Daniel Krüger
  */
 class MonitoredMetricServlet extends MetricsServlet {
+    private static final long serialVersionUID = 3841226821748298393L;
 
     @NotNull
     private static final Logger log = LoggerFactory.getLogger(MonitoredMetricServlet.class);

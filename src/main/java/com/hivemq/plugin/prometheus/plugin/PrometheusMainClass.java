@@ -47,7 +47,7 @@ public class PrometheusMainClass implements PluginMain {
         try {
             configuration = new ConfigurationReader(pluginStartInput.getPluginInformation()).readConfiguration();
         } catch (FileNotFoundException e) {
-            pluginStartOutput.preventPluginStartup("the configuration file: " + e.getMessage() + " could not be read.");
+            pluginStartOutput.preventPluginStartup("The configuration file: " + e.getMessage() + " could not be read.");
             return;
         } catch (InvalidConfigurationException e) {
             pluginStartOutput.preventPluginStartup(e.getMessage());
