@@ -1,4 +1,8 @@
+:extension: https://github.com/hivemq/hivemq-prometheus-extension
+
 == HiveMQ Prometheus Plugin
+
+NOTE: HiveMQ 4 uses a new extension system. This HiveMQ 3 plugin is not compatible with HiveMQ 4. The new version can be found {extension}[here].
 
 This plugin allows you to gather HiveMQ metrics with Prometheus and expose them via an HTTP interface.
 
