@@ -75,6 +75,14 @@ scrape_configs:
     static_configs:
       - targets: ['localhost:9399']
 
+= Contributing
+
+If you want to contribute to HiveMQ Prometheus Monitoring Plugin, see the link:CONTRIBUTING.md[contribution guidelines].
+
+= License
+
+HiveMQ Prometheus Monitoring Plugin is licensed under the `APACHE LICENSE, VERSION 2.0`. A copy of the license can be found link:LICENSE.txt[here].
+
 
 
 
